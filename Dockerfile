@@ -4,11 +4,12 @@ FROM python:3.10
 # Directorio de trabajo en el contenedor
 WORKDIR /app
 
-# Copia el script Python desde GitHub al contenedor
+# Copia el requirements.txt y el script Python al contenedor
+ADD https://raw.githubusercontent.com/carlostechinnovation/curso-devops-a1-carlos/main/requirements.txt /app/requirements.txt
 ADD https://raw.githubusercontent.com/carlostechinnovation/curso-devops-a1-carlos/main/main.py /app/main.py
 
-# Instala el módulo 'dice'
-RUN pip install dice
+# Instala las dependencias
+RUN pip install -r requirements.txt
 
 # Ejecuta el script al iniciar el contenedor
 CMD ["python", "main.py"]
