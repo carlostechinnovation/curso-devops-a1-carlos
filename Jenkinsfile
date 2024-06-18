@@ -5,7 +5,7 @@ pipeline{
         registryCredentials="dockerhub"
         project="jenkins-ejercicio"
         projectVersion="1.0"
-        repository="git@github.com:carlostechinnovation/curso-devops-a1-carlos.git"
+        repository="https://github.com/carlostechinnovation/curso-devops-a1-carlos"
         repositoryCredentials="github"
     }
     stages{
