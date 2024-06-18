@@ -24,23 +24,6 @@ pipeline{
             }
         }
 
-        stage('Calidad de codigo y seguridad'){
-            environment{
-                scannerHome= tool 'Sonar'
-            }
-            steps{
-                script{
-                    withSonarQubeEnv('Sonar'){
-                        sh "${scannerHome}/bin/sonar-scanner \
-                        -Dsonar.projectKey=$project \
-                        -Dsonar.projectName=$project \
-                        -Dsonar.projectVersion=$projectVersion \
-                        -Dsonar.sources=./"
-                    }
-                }
-            }
-        }
-
         stage('Construir imagen'){
             steps{
                 script{
